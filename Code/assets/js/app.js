@@ -59,7 +59,7 @@ d3.csv("assets/data/data.csv").then(function (newsData) {
 
     // Step 5: Create Circles
     // ==============================
-    chartGroup.selectAll("circle")
+    var circlesGroup = chartGroup.selectAll("circle")
     .data(newsData)
     .enter()
     .append("circle")
@@ -68,6 +68,32 @@ d3.csv("assets/data/data.csv").then(function (newsData) {
     .attr("r", "15")
     .attr("fill", "blue")
     .attr("opacity", ".5");
+    console.log(circlesGroup)
+
+
+      // Add abbreviation to the circle
+
+      var circleLabels = chartGroup.selectAll(null).data(newsData).enter().append("text");
+
+      circleLabels
+        .attr("x", function(d) {
+          return xLinearScale(d.poverty);
+        })
+        .attr("y", function(d) {
+          return yLinearScale(d.healthcare);
+        })
+        .text(function(d) {
+          return d.abbr;
+        })
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "10px")
+        .attr("text-anchor", "middle")
+        .attr("fill", "white")  
+
+    console.log(circleLabels)
+
+
+   
 
     // // Step 6: Initialize tool tip
     // // ==============================
@@ -92,6 +118,8 @@ d3.csv("assets/data/data.csv").then(function (newsData) {
     //     toolTip.hide(data);
     //   });
 
+  
+
     //Create axes labels
     chartGroup.append("text")
       .attr("transform", "rotate(-90)")
@@ -108,4 +136,6 @@ d3.csv("assets/data/data.csv").then(function (newsData) {
    }).catch(function(error) {
     console.log(error);
   });
+
+
 
