@@ -70,8 +70,11 @@ function updateToolTip(chosenXAxis, circlesGroup) {
   if (chosenXAxis === "poverty") {
     label = "Poverty:";
   }
-  else {
+  else if (chosenXAxis === "age") {
     label = "Age:";
+  }
+  else {
+    label = "Income:";
   }
 
   var toolTip = d3.tip()
@@ -108,6 +111,7 @@ d3.csv("assets/data/data.csv").then(function(newsData, err) {
     data.poverty= +data.poverty;
     data.healthcare= +data.healthcare
     data.age= +data.age;
+    data.income = +data.income;
 
   
   });
@@ -163,6 +167,15 @@ d3.csv("assets/data/data.csv").then(function(newsData, err) {
     .classed("inactive", true)
     .text("Age (Median)");
 
+
+  var incomeLabel = labelsGroup.append("text")
+    .attr("x", 0)
+    .attr("y", 60)
+    .attr("value", "income") // value to grab for event listener
+    .classed("inactive", true)
+    .text("Household Income (Median)");
+
+
   // append y axis
   chartGroup.append("text")
     .attr("transform", "rotate(-90)")
@@ -205,18 +218,39 @@ d3.csv("assets/data/data.csv").then(function(newsData, err) {
           ageLabel
             .classed("active", true)
             .classed("inactive", false);
+          incomeLabel
+            .classed("active", false)
+            .classed("inactive", true);
           povertyLabel
             .classed("active", false)
             .classed("inactive", true);
+         
+        }
+        else if (chosenXAxis === "income") {
+          ageLabel
+            .classed("active", false)
+            .classed("inactive", true);
+          incomeLabel
+            .classed("active", true)
+            .classed("inactive", false);
+          povertyLabel
+            .classed("active", false)
+            .classed("inactive", true);
+         
         }
         else {
          ageLabel
             .classed("active", false)
             .classed("inactive", true);
+          incomeLabel
+            .classed("active", false)
+            .classed("inactive", true);
           povertyLabel
             .classed("active", true)
             .classed("inactive", false);
+          
         }
+        
       }
     });
 }).catch(function(error) {
