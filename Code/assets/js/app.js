@@ -66,7 +66,7 @@ d3.csv("assets/data/data.csv").then(function (newsData) {
     .attr("cx", d => xLinearScale(d.poverty))
     .attr("cy", d => yLinearScale(d.healthcare))
     .attr("r", "15")
-    .attr("fill", "blue")
+    .attr("fill", "teal")
     .attr("opacity", ".5");
     console.log(circlesGroup)
 
