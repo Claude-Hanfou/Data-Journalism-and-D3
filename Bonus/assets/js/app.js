@@ -136,7 +136,7 @@ function updateToolTip(chosenXAxis, circlesGroup) {
     .attr("class", "d3-tip")
     .offset([80, -60])
     .html(function(d) {
-      return (`${d.state}<br>${label} ${d[chosenXAxis]}% <br> ${d[chosenYAxis]}%`);
+      return (`${d.state}<br>${label} ${d[chosenXAxis]}% <br> ${chosenYAxis} : ${d[chosenYAxis]}%`);
     });
 
   circlesGroup.call(toolTip);
@@ -175,7 +175,7 @@ function updateYToolTip(chosenYAxis, circlesGroup) {
     .attr("class", "d3-tip")
     .offset([80, -60])
     .html(function(d) {
-      return (`${d.state}<br>${d[chosenXAxis]}% <br> ${labelY} ${d[chosenYAxis]}%`);
+      return (`${d.state}<br> ${chosenXAxis} : ${d[chosenXAxis]}% <br> ${labelY} ${d[chosenYAxis]}%`);
     });
 
   circlesGroup.call(toolTip);
@@ -248,7 +248,7 @@ d3.csv("assets/data/data.csv").then(function(newsData, err) {
     .attr("cx", d => xLinearScale(d[chosenXAxis]))
     .attr("cy", d => yLinearScale(d[chosenYAxis]))
     .attr("r", 10)
-    .attr("fill", "#89bdd3")
+    .attr("fill", "teal")
     .attr("opacity", ".9");
 
   //append initial text 
