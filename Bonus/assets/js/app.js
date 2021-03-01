@@ -124,19 +124,20 @@ function updateToolTip(chosenXAxis, circlesGroup) {
 
   if (chosenXAxis === "poverty") {
     label = "Poverty:";
+  
   }
   else if (chosenXAxis === "age") {
     label = "Age:";
   }
   else {
-    label = "Income:";
+    label = "Income: $";
   }
 
   var toolTip = d3.tip()
     .attr("class", "d3-tip")
     .offset([80, -60])
     .html(function(d) {
-      return (`${d.state}<br>${label} ${d[chosenXAxis]}% <br> ${chosenYAxis} : ${d[chosenYAxis]}%`);
+      return (`${d.state}<br>${label} ${d[chosenXAxis]} <br> ${chosenYAxis} : ${d[chosenYAxis]}%`);
     });
 
   circlesGroup.call(toolTip);
@@ -175,7 +176,7 @@ function updateYToolTip(chosenYAxis, circlesGroup) {
     .attr("class", "d3-tip")
     .offset([80, -60])
     .html(function(d) {
-      return (`${d.state}<br> ${chosenXAxis} : ${d[chosenXAxis]}% <br> ${labelY} ${d[chosenYAxis]}%`);
+      return (`${d.state}<br> ${chosenXAxis} : ${d[chosenXAxis]} <br> ${labelY} ${d[chosenYAxis]}%`);
     });
 
   circlesGroup.call(toolTip);
