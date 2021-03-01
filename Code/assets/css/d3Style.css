@@ -30,7 +30,7 @@
   text-anchor: middle;
 }
 
-.stateCircle {
+circle {
   fill: #89bdd3;
   stroke: #e3e3e3;
 }
@@ -53,19 +53,7 @@
 }
 
 
-.tooltip {
-  position: absolute;
-  width: 135px;
-  height: 60px;
-  padding: 2px;
-  padding-top: 8px;
-  font: 12px sans-serif;
-  color: white;
-  text-align: center;
-  background: #551aaf;
-  border: 0;
-  border-radius: 10px;
-}
+
 
 
 /* Mobile Rules */

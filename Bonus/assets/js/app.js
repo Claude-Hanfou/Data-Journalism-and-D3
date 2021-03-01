@@ -247,9 +247,9 @@ d3.csv("assets/data/data.csv").then(function(newsData, err) {
     .append("circle")
     .attr("cx", d => xLinearScale(d[chosenXAxis]))
     .attr("cy", d => yLinearScale(d[chosenYAxis]))
-    .attr("r", 20)
-    .attr("fill", "teal")
-    .attr("opacity", ".5");
+    .attr("r", 10)
+    .attr("fill", "#89bdd3")
+    .attr("opacity", ".9");
 
   //append initial text 
   
