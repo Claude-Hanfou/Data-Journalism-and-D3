@@ -137,7 +137,7 @@ function updateToolTip(chosenXAxis, circlesGroup) {
     .attr("class", "d3-tip")
     .offset([80, -60])
     .html(function(d) {
-      return (`${d.state}<br>${label} ${d[chosenXAxis]} <br> ${chosenYAxis} : ${d[chosenYAxis]}%`);
+      return (`${d.state},${d.abbr}<br>${label} ${d[chosenXAxis]} <br> ${chosenYAxis} : ${d[chosenYAxis]}%`);
     });
 
   circlesGroup.call(toolTip);
@@ -176,7 +176,7 @@ function updateYToolTip(chosenYAxis, circlesGroup) {
     .attr("class", "d3-tip")
     .offset([80, -60])
     .html(function(d) {
-      return (`${d.state}<br> ${chosenXAxis} : ${d[chosenXAxis]} <br> ${labelY} ${d[chosenYAxis]}%`);
+      return (`${d.state},${d.abbr}<br> ${chosenXAxis} : ${d[chosenXAxis]} <br> ${labelY} ${d[chosenYAxis]}%`);
     });
 
   circlesGroup.call(toolTip);
