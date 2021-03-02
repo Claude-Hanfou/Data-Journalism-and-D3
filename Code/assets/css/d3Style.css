@@ -30,8 +30,8 @@
   text-anchor: middle;
 }
 
-circle {
-  fill: #89bdd3;
+.stateCircle {
+  fill:teal;
   stroke: #e3e3e3;
 }
 

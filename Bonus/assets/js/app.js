@@ -140,6 +140,7 @@ function updateToolTip(chosenXAxis, circlesGroup) {
       return (`${d.state},${d.abbr}<br>${label} ${d[chosenXAxis]} <br> ${chosenYAxis} : ${d[chosenYAxis]}%`);
     });
 
+
   circlesGroup.call(toolTip);
 
   // circlesGroup.on("mouseover", function(data) {
@@ -155,6 +156,8 @@ function updateToolTip(chosenXAxis, circlesGroup) {
     });
 
   return circlesGroup;
+
+
 }
 
 //for the y axis 
